@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/traksmart4/!svn/ver/36897/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/assessments/onsite_programs/process
+END
+TestEquipment.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/traksmart4/!svn/ver/31015/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/assessments/onsite_programs/process/TestEquipment.java
+END
+TestMeasures.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/traksmart4/!svn/ver/31016/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/assessments/onsite_programs/process/TestMeasures.java
+END
+TestAddNewProgram.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/traksmart4/!svn/ver/36897/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/assessments/onsite_programs/process/TestAddNewProgram.java
+END

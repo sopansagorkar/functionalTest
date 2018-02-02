@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/traksmart4/!svn/ver/36888/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/programs/process
+END
+TestPaymentTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/traksmart4/!svn/ver/36636/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/programs/process/TestPaymentTemplate.java
+END
+TestAddCustomerEnrollSetting.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/traksmart4/!svn/ver/33822/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/programs/process/TestAddCustomerEnrollSetting.java
+END
+TestCreateWorkflowNewIntalio.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/traksmart4/!svn/ver/32471/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/programs/process/TestCreateWorkflowNewIntalio.java
+END
+TestCreateWorkflow.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/traksmart4/!svn/ver/32471/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/programs/process/TestCreateWorkflow.java
+END
+TestMakePayments.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/traksmart4/!svn/ver/35475/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/programs/process/TestMakePayments.java
+END
+TestCreateProject.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/traksmart4/!svn/ver/36288/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/programs/process/TestCreateProject.java
+END
+TestAddProgramVariableCostDashboard.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/traksmart4/!svn/ver/36888/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/programs/process/TestAddProgramVariableCostDashboard.java
+END
+TestBudgetAndAccounting.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/traksmart4/!svn/ver/32512/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/programs/process/TestBudgetAndAccounting.java
+END
+TestProgramConfiguration.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/traksmart4/!svn/ver/36888/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/programs/process/TestProgramConfiguration.java
+END
+TestAddNewProgram.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/traksmart4/!svn/ver/35319/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/programs/process/TestAddNewProgram.java
+END
+TestAddDsmTestProjectInput.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/traksmart4/!svn/ver/36888/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/programs/process/TestAddDsmTestProjectInput.java
+END
+TestCreateForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/traksmart4/!svn/ver/36888/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/programs/process/TestCreateForm.java
+END

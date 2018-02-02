@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/traksmart4/!svn/ver/32198/traksmart/testcases/functional_tests/src/main/resources
+END
+logging.properties
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/traksmart4/!svn/ver/32198/traksmart/testcases/functional_tests/src/main/resources/logging.properties
+END
+commons-logging.properties
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/traksmart4/!svn/ver/32198/traksmart/testcases/functional_tests/src/main/resources/commons-logging.properties
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/traksmart4/!svn/ver/26567/traksmart/testcases/functional_tests/src/main/resources/log4j.properties
+END

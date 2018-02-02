@@ -1,0 +1,20 @@
+
+log4j.appender.CONSOLE = org.apache.log4j.ConsoleAppender
+log4j.appender.CONSOLE.target = System.out
+log4j.appender.CONSOLE.Threshold = INFO
+log4j.appender.CONSOLE.layout=org.apache.log4j.helpers.CleanMessagePatternLayout
+log4j.appender.CONSOLE.layout.ConversionPattern = %d{HH:mm:ss} %-5p %c{1}:%M:%L %m%n
+
+
+log4j.appender.LOGFILE = org.apache.log4j.RollingFileAppender
+log4j.appender.LOGFILE.maxFileSize = 100MB
+log4j.appender.LOGFILE.maxBackupIndex = 10
+log4j.appender.LOGFILE.File = functional_tests.log
+log4j.appender.LOGFILE.Threshold = INFO
+log4j.appender.LOGFILE.BufferedIO = false
+log4j.appender.LOGFILE.layout = org.apache.log4j.helpers.CleanMessagePatternLayout
+log4j.appender.LOGFILE.layout.ConversionPattern = %d{dd-MMM-yy HH:mm:ss,SSS} [%-3X{threadId}] %-5p %c:%M:%L %m%n
+
+
+log4j.rootLogger = INFO, CONSOLE, LOGFILE
+

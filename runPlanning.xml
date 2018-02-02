@@ -1,0 +1,75 @@
+<suite name="Nexant">
+    <parameter name="SiteAddress" value="http://172.20.19.181:8080/traksmart4/unprotected/login.do"/>
+    <parameter name="Login" value="nexantsupport"/>
+    <parameter name="Password" value="Secure-DSMC"/>
+
+    <listeners>
+        <listener class-name="com.nexant.common.TestListener"/>
+    </listeners>
+
+    <test name="All" preserve-order="true">
+        <classes>
+            <class name="com.nexant.dsm.Suit"/>
+            <methods>
+                <include name="setup"/>
+            </methods>
+
+            <class name="com.nexant.dsm.planning.process.Test_Create_New_Program">
+                <methods>
+                    <include name="Navigate"/>
+                    <include name="createNewProgram"/>
+                    <include name="addParameters"/>
+                </methods>
+            </class>
+
+
+            <class name="com.nexant.dsm.planning.process.Test_Edit_Measures">
+                <methods>
+                    <include name="editMeasures"/>
+                </methods>
+            </class>
+
+            <class name="com.nexant.dsm.planning.process.Test_Input">
+                <methods>
+                    <include name="selectInput"/>
+                    <include name="addDataToEligibilityTable"/>
+                    <include name="addDataToParticipationTable"/>
+                    <include name="addDataToCostTable"/>
+                </methods>
+            </class>
+
+            <class name="com.nexant.dsm.planning.process.Test_Budgeting">
+                <methods>
+                    <include name="clickBudgeting"/>
+                    <include name="editCostReference"/>
+                    <include name="addCostReference"/>
+                </methods>
+            </class>
+
+            <class name="com.nexant.dsm.planning.process.Test_Analyze">
+                <methods>
+                    <include name="selectAnalyze"/>
+                    <include name="testAnalyze"/>
+                </methods>
+            </class>
+
+            <class name="com.nexant.dsm.planning.process.Test_Create_Portfolio">
+                <methods>
+                    <include name="navigate"/>
+                    <include name="createPortfolio"/>
+                </methods>
+            </class>
+
+            <!--
+                            <class name="com.nexant.dsm.planning.process.Test_Create_Program_With_Existing">
+                                <methods>
+                                    <include name="Navigate"/>
+                                    <include name="createProgram"/>
+                                    <include name="addParameters"/>
+                                </methods>
+                            </class>
+             -->
+
+       </classes>
+    </test>
+</suite>

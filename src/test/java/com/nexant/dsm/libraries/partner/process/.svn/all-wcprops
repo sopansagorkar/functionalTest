@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/traksmart4/!svn/ver/36346/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/libraries/partner/process
+END
+TestAddNewLicense.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/traksmart4/!svn/ver/36346/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/libraries/partner/process/TestAddNewLicense.java
+END
+TestAddNewPersonnel.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/traksmart4/!svn/ver/36346/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/libraries/partner/process/TestAddNewPersonnel.java
+END
+TestAddNewServiceCombination.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/traksmart4/!svn/ver/36346/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/libraries/partner/process/TestAddNewServiceCombination.java
+END
+TestAddNewCompanyOffices.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/traksmart4/!svn/ver/36345/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/libraries/partner/process/TestAddNewCompanyOffices.java
+END
+TestManagePartnersElements.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/traksmart4/!svn/ver/36346/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/libraries/partner/process/TestManagePartnersElements.java
+END
+TestAddNewPartner.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/traksmart4/!svn/ver/36346/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/libraries/partner/process/TestAddNewPartner.java
+END
+TestAddNewContract.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/traksmart4/!svn/ver/36346/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/libraries/partner/process/TestAddNewContract.java
+END
+TestAddNewNote.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/traksmart4/!svn/ver/36346/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/libraries/partner/process/TestAddNewNote.java
+END

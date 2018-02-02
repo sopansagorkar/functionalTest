@@ -1,0 +1,376 @@
+<suite name="Nexant">
+	<parameter name="SiteAddress" value="${SiteAddress}"/>
+	<parameter name="Login" value="${Login}"/>
+	<parameter name="Password" value="${Password}"/>
+
+     <listeners>
+ 		<listener class-name="com.nexant.common.TestListener"/>
+ 	</listeners>
+ 
+    <test name="All" preserve-order="true">
+        <classes>
+        	 
+            <class name="com.nexant.dsm.Suit">
+	            <methods>
+	                <include name="login"/>
+	                <include name="setupNonIncentiveAttribute"/>
+	            </methods>
+			</class>
+
+            <class name="com.nexant.dsm.admin.TestRoles">
+                <methods>
+                    <include name="TestRoles"/>
+                </methods>
+            </class>
+
+            <class name="com.nexant.dsm.users.TestUserRoles">
+                <methods>
+                    <include name="checkUserRoles"/>
+                </methods>
+            </class>
+
+            <class name="com.nexant.dsm.libraries.serviceprovider.TestNewServiceProvider">
+	            <methods>
+	                <include name="testAddNewServiceProvider"/>
+					<include name="addNewContact"/>
+	            </methods>
+	        </class>
+
+            <class name="com.nexant.dsm.libraries.customers.process.TestNewCustomerAdd">
+	            <methods>
+	            	<include name="testCustomerLibraryLandingPage"/>
+	                <include name="testAddNewCustomer"/>
+	                <include name="testAddNewCompany"/>
+	                <include name="testAddBillAccount"/>
+	                <include name="testAddNewSite"/>
+					<include name="testAddNewMeter"/>
+					<include name="testSaveInactiveBillAccount"/>
+					<include name="testAddNewContact"/>
+	                <include name="testAddNote"/>
+	                <include name="testAddProjectNote"/>
+	                <include name="testAddNoteWithFollowUp"/>
+	                <include name="testSiteAddNote"/>
+	                <include name="testAppointmentsSorting"/>
+	                <include name="testCustomerUsage"/>
+					<include name="testProjectList"/>
+	            </methods>
+	        </class>
+
+			<class name="com.nexant.dsm.libraries.contactmanagement.process.TestContactManagementReminder">
+				<methods>
+					<include name="testSortReminder"/>
+				</methods>
+			</class>
+
+			<class name="com.nexant.dsm.libraries.contactmanagement.process.TestAddNewContactManagementContact">
+	            <methods>
+	                <include name="testAddNewContact"/>
+	            </methods>
+	        </class>
+
+            <class name="com.nexant.dsm.libraries.contactmanagement.process.TestAddContactManagementNote">
+	            <methods>
+	                <include name="testAddNote"/>
+	                <include name="testAddNoteWithFollowUp"/>
+	            </methods>
+	        </class>
+
+            <class name="com.nexant.dsm.libraries.partner.process.TestManagePartnersElements">
+	            <methods>
+	                <include name="testAddServiceType"/>
+	                <include name="testAddSpeciality"/>
+	            </methods>
+	        </class>
+
+            <class name="com.nexant.dsm.libraries.partner.process.TestAddNewPartner">
+	            <methods>
+	                <include name="testAddNewPartner"/>
+	            </methods>
+	        </class>
+
+            <class name="com.nexant.dsm.libraries.partner.process.TestAddNewCompanyOffices">
+	            <methods>
+	                <include name="testAddOffice"/>
+	            </methods>
+	        </class>
+
+            <class name="com.nexant.dsm.libraries.partner.process.TestAddNewPersonnel">
+	            <methods>
+	                <include name="testAddPersonnel"/>
+	            </methods>
+	        </class>
+
+            <class name="com.nexant.dsm.libraries.partner.process.TestAddNewNote">
+	            <methods>
+	                <include name="testAddPartnerNote"/>
+	                <include name="testAddPartnerNoteWithFollowUp"/>
+	            </methods>
+	        </class>
+
+            <class name="com.nexant.dsm.libraries.partner.process.TestAddNewContract">
+	            <methods>
+	                <include name="TestAddActiveContract"/>
+	                <include name="TestAddInactiveContract"/>
+	            </methods>
+	        </class>
+
+            <class name="com.nexant.dsm.libraries.partner.process.TestAddNewLicense">
+	            <methods>
+	                <include name="testAddNewLicense"/>
+	                <include name="testAddInactiveLicense"/>
+	            </methods>
+	        </class>
+
+            <class name="com.nexant.dsm.libraries.partner.process.TestAddNewServiceCombination">
+	            <methods>
+	                <include name="testAddNewServiceCombination"/>
+	            </methods>
+	        </class>
+
+            <class name="com.nexant.dsm.libraries.equipment.process.TestAddNewEquipment">
+                <methods>
+                    <include name="testAddNewEquipment"/>
+                    <include name="testSearchForAddedEquipment"/>
+                </methods>
+            </class>
+
+            <class name="com.nexant.dsm.libraries.measures.process.TestCreateCategoryTypeSubType">
+                <methods>
+                    <include name="testAddCategory"/>
+                    <include name="testAddType"/>
+                    <include name="testAddSubType"/>
+                    <include name="testAddTrackingField"/>
+                    <include name="testAddAttributes"/>
+                    <!--<include name="testAddNewLongMeasure"/>
+                    <include name="testAddNewUTF8Measure"/>
+                    <include name="testAddNewMeasure"/>-->
+                </methods>
+            </class>
+
+            <class name="com.nexant.dsm.libraries.dsmcosteffectiveness.process.TestAddNewShape">
+	            <methods>
+	                <include name="testAddShape"/>
+                    <include name="testUploadCostFiles"/>
+                    <include name="testUploadRatesFiles"/>
+                    <include name="testOther"/>
+                    <include name="testUploadCustomersFiles"/>
+	            </methods>
+	        </class>
+
+			<class name="com.nexant.dsm.libraries.survey.TestSurvey">
+				<methods>
+					<include name="testSurveysSelector"/>
+				</methods>
+			</class>
+
+            <class name="com.nexant.dsm.programs.process.TestAddNewProgram">
+	            <methods>
+	                <include name="testCreateNewProgram"/>
+	            </methods>
+	        </class>
+
+	         <class name="com.nexant.dsm.programs.process.TestProgramConfiguration">
+	            <methods>
+	                <include name="verifyFormConfigAssignment"/>
+                    <!--<include name="manageProgramMeasure"/>-->
+                    <include name="testAddEmailNotification"/>
+                    <include name="testAddFormula"/>
+                    <include name="testStatsAndVersionsTab"/>
+                    <include name="testStructureTab"/>
+	            </methods>
+	        </class>
+
+			<class name="com.nexant.dsm.programs.process.TestBudgetAndAccounting">
+	            <methods>
+	                <include name="testAddBudgetCategory"/>
+	                <include name="testAddAccountingCodeCategory"/>
+	                <include name="testAddAccountingCode"/>
+                    <include name="testAddVariableCost"/>
+                    <include name="testAddFixedCost"/>
+	            </methods>
+	        </class>
+
+            <class name="com.nexant.dsm.programs.process.TestCreateForm">
+                <methods>
+                    <include name="createBasicForm1"/>
+                    <include name="createBasicForm2"/>
+                   <!-- <include name="editFormDefinition2"/>-->
+					<include name="testFormPreview"/>
+                </methods>
+            </class>
+
+            <class name="com.nexant.dsm.programs.process.TestCreateWorkflow">
+                <methods>
+                    <include name="createWorkflow"/>
+                </methods>
+            </class>
+
+			 <class name="com.nexant.dsm.programs.process.TestCreateProject">
+                <methods>
+                    <include name="createNewProject"/>
+                    <!-- <include name="fillFormData"/>-->
+                    <include name="completeProject"/>
+                </methods>
+            </class>
+
+            <class name="com.nexant.dsm.programs.process.TestAddDsmTestProjectInput">
+                <methods>
+                    <include name="createProjectTestInput"/>
+                </methods>
+            </class>
+
+			 <class name="com.nexant.dsm.programs.process.TestMakePayments">
+	            <methods>
+	               <!-- <include name="makePayments"/>-->
+	            </methods>
+	        </class>
+
+			 <class name="com.nexant.dsm.programs.process.TestPaymentTemplate">
+	            <methods>
+	                <include name="deleteTemplateTest"/>
+	            </methods>
+	        </class>
+
+            <class name="com.nexant.dsm.programs.process.TestAddCustomerEnrollSetting">
+	            <methods>
+	                <include name="testAddCustomerEnrollSetting"/>
+	                <include name="testAddCustomerEligibilitySetting"/>
+	                <include name="testAddPartnerEligibilitySetting"/>
+	                <include name="testSave"/>
+	            </methods>
+	        </class>
+
+			<!--<class name="com.nexant.dsm.projects.process.TestCreateNewProject">-->
+				<!--<methods>-->
+					<!--<include name="navigateToProjects"/>-->
+					<!--<include name="fillFormData"/>-->
+					<!--<include name="visitAllMenuItems"/>-->
+					<!--<include name="sortProjects"/>-->
+				<!--</methods>-->
+			<!--</class>-->
+
+            <class name="com.nexant.dsm.scheduling.TestSchedulingGroupConfig">
+                <methods>
+                    <include name="testCreateNewAppointmentType"/>
+                    <include name="testCreateNewSchedulingGroup"/>
+                    <include name="addMembersAndGenerateBlocks"/>
+                    <include name="addScheduleAppointmentFromCustomerLibrary"/>
+                </methods>
+            </class>
+
+            <class name="com.nexant.dsm.planning.process.TestCreateProgramWithExisting">
+	            <methods>
+	                <include name="createProgram"/>
+	            </methods>
+            </class>
+
+            <class name="com.nexant.dsm.planning.process.TestCreateNewProgram">
+	            <methods>
+	                <include name="createNewProgram"/>
+	                <include name="addParameters"/>
+	            </methods>
+            </class>
+
+           <!-- <class name="com.nexant.dsm.planning.process.TestEditMeasures">
+	            <methods>
+	                <include name="editMeasures"/>
+	            </methods>
+            </class>-->
+
+            <class name="com.nexant.dsm.planning.process.TestInput">
+	            <methods>
+	                <include name="selectInput"/>
+	               <!-- <include name="addDataToEligibilityTable"/>
+	                <include name="addDataToParticipationTable"/>
+	                <include name="addDataToCostTable"/>-->
+	            </methods>
+            </class>
+
+            <class name="com.nexant.dsm.planning.process.TestBudgeting">
+	            <methods>
+	                <include name="testBudgetCostReference"/>
+	                <include name="editBudgeting"/>
+	            </methods>
+            </class>
+
+            <class name="com.nexant.dsm.planning.process.TestAnalyze">
+	            <methods>
+	                <!--<include name="selectAnalyze"/>-->
+	            </methods>
+            </class>
+
+            <class name="com.nexant.dsm.planning.process.TestCreatePortfolio">
+	            <methods>
+	                <include name="createPortfolio"/>
+	            </methods>
+            </class>
+
+            <class name="com.nexant.dsm.planning.process.TestEditPortfolio">
+	            <methods>
+	                <include name="selectCreatedPortfolio"/>
+	                <include name="editProgram"/>
+	            </methods>
+            </class>
+
+			<class name="com.nexant.dsm.marketing.process.TestCreateCampaign">
+				<methods>
+					<include name="createCampaign"/>
+                    <include name="addActivity"/>
+                    <include name="addEmail"/>
+				</methods>
+			</class>
+
+			<class name="com.nexant.dsm.marketing.process.TestParticipants">
+				<methods>
+                    <include name="addNewTargetList"/>
+					<!--<include name="addParticipants"/>
+					<include name="markAsALead"/>-->
+				</methods>
+			</class>
+
+			<class name="com.nexant.dsm.marketing.process.TestLeads">
+				<methods>
+					<!--<include name="addOpportunity"/>
+                    <include name="addNotesForLeads"/>-->
+				</methods>
+			</class>
+
+			<class name="com.nexant.dsm.assessments.onsite_programs.process.TestAddNewProgram">
+				<methods>
+					<include name="navigate"/>
+					<include name="addProgram"/>
+					<include name="addConfigParams"/>
+					<include name="addAttributeGroups"/>
+					<include name="addAssociationType"/>
+					<include name="testAttributes" />
+				</methods>
+			</class>
+
+			<class name="com.nexant.dsm.programs.process.TestAddProgramVariableCostDashboard">
+	            <methods>
+	            	<include name="testCreateNewProgram"/>
+	            </methods>
+	        </class>
+
+			<class name="com.nexant.dsm.dashboard.TestDashboard">
+				<methods>
+					<include name="navigate"/>
+					<include name="testElectric" />
+					<include name="testGas" />
+					<include name="testRenewable" />
+					<include name="testWater" />
+				</methods>
+			</class>
+
+            <class name="com.nexant.dsm.publicinterface.TestPublicInterfaceRegistration">
+	            <methods>
+	            	<include name="testAddNewPICustomerWithBillAccount"/>
+	            	<include name="testRegistration"/>
+	            	<include name="testActivateUser"/>
+	            	<include name="testPublicLogin"/>
+				</methods>
+			</class>
+
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,40 @@
+8
+
+dir
+36918
+http://172.20.19.61:18080/svn/traksmart4/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/libraries/customers/process
+http://172.20.19.61:18080/svn/traksmart4
+
+
+
+2015-12-04T01:29:19.751851Z
+36559
+sevans
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+41b3adca-912c-4ff8-941c-e0a043816fed
+
+TestNewCustomerAdd.java
+file
+
+
+
+
+2016-02-01T05:55:59.052000Z
+b979d08b59548e883b7a017a30c5aa63
+2015-12-04T01:29:19.751851Z
+36559
+sevans
+

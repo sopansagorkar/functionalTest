@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/traksmart4/!svn/ver/36341/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/libraries/contactmanagement/process
+END
+TestAddNewContactManagementContact.java
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/traksmart4/!svn/ver/36340/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/libraries/contactmanagement/process/TestAddNewContactManagementContact.java
+END
+TestAddContactManagementNote.java
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/traksmart4/!svn/ver/36340/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/libraries/contactmanagement/process/TestAddContactManagementNote.java
+END
+TestContactManagementReminder.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/traksmart4/!svn/ver/36341/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/libraries/contactmanagement/process/TestContactManagementReminder.java
+END

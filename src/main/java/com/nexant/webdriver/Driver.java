@@ -1,0 +1,321 @@
+package com.nexant.webdriver;
+
+//import com.opera.core.systems.OperaDriver;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.openqa.selenium.Platform;
+import org.openqa.selenium.UnsupportedCommandException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Enumeration;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
+public class Driver extends Thread {
+	private static final Log log = LogFactory.getLog(Driver.class);
+
+	public static final String BROWSER_PROPERTY_NAME = "browser";
+	public static BrowserName currentDriver;
+	// default for browsermob localhost:8080
+	// default for fiddler: localhost:8888
+	public static String PROXY = "localhost:8080";
+	private static WebDriver aDriver = null;
+	private static long browserStartTime = 0L;
+	private static long savedTimecount = 0L;
+	// public static final long DEFAULT_TIMEOUT_SECONDS = 10;
+	private static boolean avoidRecursiveCall = false;
+	private static BrowserName useThisDriver = null;
+
+	public static void set(BrowserName aBrowser) {
+		useThisDriver = aBrowser;
+
+		// close any existing driver
+		if (aDriver != null) {
+			aDriver.quit();
+			aDriver = null;
+		}
+	}
+
+	public static WebDriver get() {
+
+		String os = System.getProperty("os.name");
+		String osarch = System.getProperty("os.arch");
+
+		String browserGuess = "CHROME";
+		if ("Linux".equalsIgnoreCase(os) && "amd64".equalsIgnoreCase(osarch)) {
+			browserGuess = "CHROME64";
+		}
+
+		String defaultBrowser = System.getProperty(BROWSER_PROPERTY_NAME, browserGuess);
+
+		if (useThisDriver == null) {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append("\n\nENVIRONMENT:\n");
+			for (Map.Entry<String, String> env : System.getenv().entrySet()) {
+				sb.append("\n\t").append(env.getKey()).append(" = ").append(env.getValue());
+			}
+			sb.append("\n\nSYSTEM PROPS:\n");
+			for (Enumeration<?> e = System.getProperties().propertyNames(); e.hasMoreElements();) {
+				String name = (String) e.nextElement();
+				sb.append("\n\t").append(name).append(" = ").append(System.getProperty(name));
+			}
+			sb.append("\n\n");
+			log.info(sb.toString());
+
+			log.info("doing on " + os + ", " + defaultBrowser);
+			if (defaultBrowser.equals("FIREFOX")) {
+				useThisDriver = BrowserName.FIREFOX;
+
+			} else if (defaultBrowser.equals("CHROME")) {
+				useThisDriver = BrowserName.GOOGLECHROME;
+
+			} else if (defaultBrowser.equals("CHROME64")) {
+				useThisDriver = BrowserName.GOOGLECHROME_64;
+
+			} else if (defaultBrowser.equals("IE")) {
+				useThisDriver = BrowserName.IE;
+
+			} else if (defaultBrowser.equals("IE_32")) {
+				useThisDriver = BrowserName.IE_32;
+
+			} else if (defaultBrowser.equals("SAUCELABS")) {
+				useThisDriver = BrowserName.SAUCELABS;
+
+			} else if (defaultBrowser.equals("HTMLUNIT")) {
+				useThisDriver = BrowserName.HTMLUNIT;
+
+			} else {
+				log.error("Unknown Browser in " + BROWSER_PROPERTY_NAME + ": " + defaultBrowser);
+				throw new RuntimeException("Unknown Browser in " + BROWSER_PROPERTY_NAME + ": " + defaultBrowser);
+			}
+
+		}
+
+		if (aDriver == null) {
+
+			long startBrowserTime = System.currentTimeMillis();
+
+			switch (useThisDriver) {
+			case FIREFOX:
+				FirefoxProfile profile = new FirefoxProfile();
+				profile.setEnableNativeEvents(true);
+
+				aDriver = new FirefoxDriver();// profile);
+				currentDriver = BrowserName.FIREFOX;
+				break;
+
+			case HTMLUNIT:
+
+				aDriver = new HtmlUnitDriver();
+				currentDriver = BrowserName.HTMLUNIT;
+				break;
+
+			case IE:
+				String IE_path = System.getenv("WEBDRIVER_LOC");
+				setDriverPropertyIfNecessary("webdriver.ie.driver", "IEDriverServer-x64.exe", IE_path);
+
+				InternetExplorerDriver ie = new InternetExplorerDriver();
+				aDriver = ie;
+				currentDriver = BrowserName.IE;
+				break;
+
+			case IE_32:
+				IE_path = System.getenv("WEBDRIVER_LOC");
+				setDriverPropertyIfNecessary("webdriver.ie.driver", "IEDriverServer-win32.exe", IE_path);
+
+				ie = new InternetExplorerDriver();
+				aDriver = ie;
+				currentDriver = BrowserName.IE;
+				break;
+
+			case GOOGLECHROME:
+
+				String driverFile = "chromedriver-win32.exe";
+				if (os.toLowerCase().startsWith("mac")) {
+					driverFile = "chromedriver_mac32";
+				} else if (os.toLowerCase().startsWith("linux")) {
+					driverFile = "chromedriver_linux32";
+				}
+
+				setDriverPropertyIfNecessary("webdriver.chrome.driver", driverFile, driverFile);
+
+				ChromeOptions options = new ChromeOptions();
+				options.addArguments("disable-plugins");
+				options.addArguments("disable-extensions");
+
+				aDriver = new ChromeDriver(options);
+				currentDriver = BrowserName.GOOGLECHROME;
+				break;
+
+			case GOOGLECHROME_64:
+
+				driverFile = "chromedriver-win64.exe";
+				if (os.toLowerCase().startsWith("mac")) {
+					driverFile = "chromedriver_mac64";
+				} else if (os.toLowerCase().startsWith("linux")) {
+					driverFile = "chromedriver_linux64";
+				}
+
+				setDriverPropertyIfNecessary("webdriver.chrome.driver", driverFile, driverFile);
+
+				options = new ChromeOptions();
+				options.addArguments("disable-plugins");
+				options.addArguments("disable-extensions");
+
+				DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+				capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+
+				aDriver = new ChromeDriver(capabilities);
+				currentDriver = BrowserName.GOOGLECHROME_64;
+				break;
+
+			case SAUCELABS:
+
+				capabilities = DesiredCapabilities.firefox();
+				capabilities.setCapability("version", "5");
+				capabilities.setCapability("platform", Platform.XP);
+				try {
+					// add url to environment variables to avoid releasing with source
+					String sauceURL = System.getenv("SAUCELABS_URL");
+					aDriver = new RemoteWebDriver(new URL(sauceURL), capabilities);
+				} catch (MalformedURLException e) {
+					log.error("error", e);
+				}
+				currentDriver = BrowserName.SAUCELABS;
+				break;
+			}
+
+			long browserStartedTime = System.currentTimeMillis();
+			browserStartTime = browserStartedTime - startBrowserTime;
+
+			// we want to shutdown the shared browser when the tests finish
+			Runtime.getRuntime().addShutdownHook(new Thread() {
+				public void run() {
+					Driver.quit();
+				}
+			});
+
+			aDriver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+			aDriver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+			aDriver.manage().timeouts().setScriptTimeout(20, TimeUnit.SECONDS);
+
+		} else {
+
+			try {
+				// is browser still alive
+				if (aDriver.getWindowHandle() != null) {
+					// assume it is still alive
+				}
+			} catch (Exception e) {
+				log.error("error", e);
+				if (avoidRecursiveCall) {
+					// something has gone wrong as we have been here already
+					throw new RuntimeException();
+				}
+
+				quit();
+				aDriver = null;
+				avoidRecursiveCall = true;
+				return get();
+			}
+
+			savedTimecount += browserStartTime;
+			// System.out.println("Saved another " + browserStartTime + "ms : total saved "
+			// + savedTimecount + "ms");
+		}
+
+		avoidRecursiveCall = false;
+		return aDriver;
+	}
+
+	private static void setDriverPropertyIfNecessary(String propertyKey, String relativeToUserPath,
+			String absolutePath) {
+		// http://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html
+
+		if (!System.getProperties().containsKey(propertyKey)) {
+
+			// try user dir
+			String currentDir = System.getProperty("user.dir");
+			String chromeDriverLocation = currentDir + File.separator + relativeToUserPath;
+			File driverExe = new File(chromeDriverLocation);
+
+			if (driverExe.exists()) {
+				System.setProperty(propertyKey, chromeDriverLocation);
+				log.info("found driver at " + driverExe);
+				return;
+			}
+
+			// try user home dir
+			String homeDir = System.getProperty("user.home");
+			chromeDriverLocation = currentDir + File.separator + homeDir;
+			driverExe = new File(chromeDriverLocation);
+
+			if (driverExe.exists()) {
+				System.setProperty(propertyKey, chromeDriverLocation);
+				log.info("found driver at " + driverExe);
+				return;
+			}
+
+			driverExe = new File(absolutePath);
+			if (driverExe.exists()) {
+				System.setProperty(propertyKey, absolutePath);
+				log.info("found driver at " + driverExe);
+				return;
+			}
+
+			log.warn("did not find: " + propertyKey + ", " + relativeToUserPath + ", " + absolutePath);
+		}
+	}
+
+	public static WebDriver get(String aURL, boolean maximize) {
+		get();
+		aDriver.get(aURL);
+		if (maximize) {
+			try {
+				aDriver.manage().window().maximize();
+			} catch (UnsupportedCommandException e) {
+				// System.out.println("Remote Driver does not support maximise");
+				log.error("error", e);
+			} catch (UnsupportedOperationException e) {
+				// System.out.println("Opera driver does not support maximize yet");
+				log.error("error", e);
+			}
+		}
+		return aDriver;
+	}
+
+	public static WebDriver get(String aURL) {
+		return get(aURL, true);
+	}
+
+	public static void quit() {
+		if (aDriver != null) {
+			// System.out.println("total time saved by reusing browsers " + savedTimecount +
+			// "ms");
+			try {
+				aDriver.quit();
+				aDriver = null;
+			} catch (Exception e) {
+				log.error("error", e);
+				// I don't care about errors at this point
+			}
+
+		}
+	}
+
+	public enum BrowserName {
+		FIREFOX, GOOGLECHROME, GOOGLECHROME_64, SAUCELABS, IE, IE_32, HTMLUNIT
+	}
+}

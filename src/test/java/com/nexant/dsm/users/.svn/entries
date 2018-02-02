@@ -1,0 +1,40 @@
+8
+
+dir
+36918
+http://172.20.19.61:18080/svn/traksmart4/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/users
+http://172.20.19.61:18080/svn/traksmart4
+
+
+
+2015-08-20T20:45:18.413807Z
+35297
+rshukla
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+41b3adca-912c-4ff8-941c-e0a043816fed
+
+TestUserRoles.java
+file
+
+
+
+
+2016-02-01T05:55:58.172000Z
+d2e98c01092d7af5a793ecee8a0c451a
+2015-08-20T20:45:18.413807Z
+35297
+rshukla
+

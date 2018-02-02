@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/traksmart4/!svn/ver/36892/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/planning/process
+END
+TestEditPortfolio.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/traksmart4/!svn/ver/31384/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/planning/process/TestEditPortfolio.java
+END
+TestBudgeting.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/traksmart4/!svn/ver/36888/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/planning/process/TestBudgeting.java
+END
+TestCreatePortfolio.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/traksmart4/!svn/ver/31289/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/planning/process/TestCreatePortfolio.java
+END
+TestAnalyze.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/traksmart4/!svn/ver/36132/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/planning/process/TestAnalyze.java
+END
+TestInput.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/traksmart4/!svn/ver/36368/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/planning/process/TestInput.java
+END
+TestCreateProgramWithExisting.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/traksmart4/!svn/ver/32731/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/planning/process/TestCreateProgramWithExisting.java
+END
+TestCreateNewProgram.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/traksmart4/!svn/ver/36892/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/planning/process/TestCreateNewProgram.java
+END
+TestEditMeasures.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/traksmart4/!svn/ver/36366/traksmart/testcases/functional_tests/src/test/java/com/nexant/dsm/planning/process/TestEditMeasures.java
+END
